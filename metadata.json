@@ -1,0 +1,6 @@
+{
+  "name": "Dictator Landing Page",
+  "description": "Ultra-premium landing page for the $DICTATOR memecoin, featuring dark luxury, gold and deep red accents, cinematic motion elements, and interactive decree and command sections.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

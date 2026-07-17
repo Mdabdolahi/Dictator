@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Cinzel", serif;
+  --font-serif: "Georgia", serif;
+  
+  --color-gold-50: #fbf9f0;
+  --color-gold-100: #f5f0d5;
+  --color-gold-200: #ebdca0;
+  --color-gold-300: #dfc56f;
+  --color-gold-400: #e5c158;
+  --color-gold-500: #D4AF37; /* Exact Geometric Balance Gold */
+  --color-gold-600: #b38f24;
+  --color-gold-700: #8c6f19;
+  --color-gold-800: #665012;
+  --color-gold-900: #40320b;
+}
+
+/* Premium Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #D4AF37, #8c6f19);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #030303;
+  color: #f5f0d5;
+  overflow-x: hidden;
+}
+
+/* Ambient Shadows and Borders from Geometric Balance theme */
+.gold-border {
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.gold-text {
+  color: #D4AF37;
+}
+
+.red-glow {
+  box-shadow: 0 0 50px rgba(153, 0, 0, 0.45);
+}
+
+.bg-regime {
+  background: linear-gradient(180deg, #121212 0%, #050505 100%);
+}
+
+.emblem-ring {
+  border: 2px solid #D4AF37;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.military-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid #D4AF37;
+}
+
+.stat-value {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+}
+
+.glow-red {
+  box-shadow: 0 0 50px 10px rgba(220, 38, 38, 0.15);
+}
+
+.glow-gold {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.12);
+}
+
+.text-shadow-gold {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.text-shadow-red {
+  text-shadow: 0 0 15px rgba(220, 38, 38, 0.5);
+}
+
+/* Golden Border Gradient utility */
+.border-gold-grad {
+  border-image: linear-gradient(135deg, #D4AF37 0%, #665012 50%, #D4AF37 100%) 1;
+}
+
+/* Particle animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(50px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-dust {
+  animation: floatUp var(--duration, 15s) var(--delay, 0s) infinite linear;
+}
+
