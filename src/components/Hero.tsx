@@ -18,7 +18,6 @@ let lfo: OscillatorNode | null = null;
 
 export default function Hero({ onEnlistClick, contractAddress }: HeroProps) {
   const [isPlayingSound, setIsPlayingSound] = useState(false);
-  const [copied, setCopied] = useState(false);
 
   const toggleSound = () => {
     if (isPlayingSound) {
@@ -111,12 +110,6 @@ export default function Hero({ onEnlistClick, contractAddress }: HeroProps) {
     }
   };
 
-  const copyContract = () => {
-    navigator.clipboard.writeText(contractAddress);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   // Ensure clean up when component unmounts
   useEffect(() => {
     return () => {
@@ -135,26 +128,7 @@ export default function Hero({ onEnlistClick, contractAddress }: HeroProps) {
         <div className="absolute w-[80%] h-[80%] border-2 border-double border-gold-300/15 rounded-full" />
       </div>
 
-      {/* Floating Audio transmission controller */}
-      <div className="absolute top-28 right-4 md:right-8 z-30">
-        <button
-          onClick={toggleSound}
-          className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-black/60 backdrop-blur-md border border-gold-500/30 text-gold-200 text-xs font-mono uppercase tracking-widest hover:border-gold-400 hover:text-gold-100 transition-all duration-300 rounded shadow-lg"
-          id="toggle-audio-btn"
-        >
-          {isPlayingSound ? (
-            <>
-              <Volume2 className="w-3.5 h-3.5 text-red-500 animate-pulse" />
-              <span>Regime Transmission Active</span>
-            </>
-          ) : (
-            <>
-              <VolumeX className="w-3.5 h-3.5 text-gold-400" />
-              <span>Activate Regime Transmission</span>
-            </>
-          )}
-        </button>
-      </div>
+
 
       {/* Hero Visual Container */}
       <div className="relative w-full max-w-4xl flex flex-col items-center z-10 text-center">
@@ -212,7 +186,7 @@ export default function Hero({ onEnlistClick, contractAddress }: HeroProps) {
             className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold-600 to-gold-400 hover:from-gold-500 hover:to-gold-300 text-black font-display font-bold text-sm tracking-widest uppercase rounded shadow-[0_0_20px_rgba(193,129,45,0.4)] hover:shadow-[0_0_30px_rgba(193,129,45,0.6)] transition-all duration-300 transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2"
             id="buy-dictator-btn"
           >
-            <Swords className="w-4 h-4" /> Buy $DICTATOR
+            <Swords className="w-4 h-4" /> Buy $DIC
           </a>
           <button
             onClick={onEnlistClick}
@@ -220,26 +194,6 @@ export default function Hero({ onEnlistClick, contractAddress }: HeroProps) {
             id="join-regime-btn"
           >
             Join The Regime <ArrowRight className="w-4 h-4" />
-          </button>
-        </motion.div>
-
-        {/* Contract Address copy panel */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.9 }}
-          className="mt-12 w-full max-w-lg bg-black/60 backdrop-blur-md border border-gold-500/10 px-4 py-3 rounded flex flex-col sm:flex-row items-center justify-between gap-3 text-left"
-        >
-          <div className="flex flex-col">
-            <span className="text-[10px] font-mono text-gold-500/80 uppercase tracking-widest">Sovereign Contract Address</span>
-            <span className="font-mono text-xs text-gold-200 select-all break-all">{contractAddress}</span>
-          </div>
-          <button
-            onClick={copyContract}
-            className="flex-shrink-0 px-3 py-1.5 bg-gold-900/30 border border-gold-500/30 hover:border-gold-400 text-gold-400 hover:text-gold-200 text-xs font-mono uppercase tracking-wider rounded transition-all duration-200"
-            id="copy-ca-btn"
-          >
-            {copied ? "Copied" : "Copy"}
           </button>
         </motion.div>
       </div>

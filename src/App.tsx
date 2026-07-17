@@ -141,7 +141,7 @@ export default function App() {
           {/* Social Links */}
           <div className="flex items-center gap-4 text-gold-400 text-xs">
             <a
-              href="https://x.com/Dictatorsol"
+              href="https://x.com/Dictator2026"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gold-200 transition-colors p-2 bg-gold-950/20 border border-gold-500/10 hover:border-gold-500/40 rounded-full"
